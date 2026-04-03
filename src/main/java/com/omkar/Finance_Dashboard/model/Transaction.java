@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@Table
-@Entity(name = "users")
+@Table(name = "transactions")
+@Entity
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -25,9 +25,18 @@ public class Transaction {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(nullable = false)
     private BigDecimal amount;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TransactionType type;
 
+    @Column(nullable = false)
+    private String category;
+
+    @Column(nullable = false)
     private LocalDateTime date;
+
+    private String notes;
 }

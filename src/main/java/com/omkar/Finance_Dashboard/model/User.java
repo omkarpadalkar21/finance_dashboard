@@ -45,10 +45,16 @@ public class User implements UserDetails {
     @Column(nullable = false)
     private String lastName;
 
+    @NotBlank(message = "Password is required")
+    @Column(nullable = false)
+    private String password;
+
+    @Enumerated(EnumType.STRING)
     @NotNull
     @Column(nullable = false)
     private AccountStatus accountStatus;
 
+    @Enumerated(EnumType.STRING)
     @NotNull
     private RoleName role;
 
@@ -61,12 +67,12 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
+        return List.of(new org.springframework.security.core.authority.SimpleGrantedAuthority("ROLE_" + role.name()));
     }
 
     @Override
     public String getPassword() {
-        return "";
+        return password;
     }
 
     @Override

@@ -1,7 +1,20 @@
 spring:
   application:
     name: Finance_Dashboard
-
+  datasource:
+    url: jdbc:h2:mem:financedb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 jwt:
   secret-key: 9WQbHcbDT3BKDqW4lK4Qhx+pAI4gA2RTB0CH6qL15PLalfsFu46FeyfVpbMqvCSII2rb6zd3Z5yh9G0gTXouAcUFtS3IvtNlNkvH+XAi0sUSUIzXnA5aAjiTE4WcP6QRvUv3dTxcwsp1tTZwRDO6vNaILNXm6+o5Mtlyqvx+9GbFIxTxgOq5kVW6VpwJ93Fj8IbqM7WKlJg62l5HQ8X+CivnXP1fla2JNBO6S9y7t+geuUU1scfArBoPbtyCMFSLD97cmqHQnDvrYZ3RHnT/j6W7elShVLwDrnvL1gTMtPMk+RbQsXLLTtVxYf8cBwBiZOhDDm50Uh9ssoMUHQuNWA==
   access-key:
