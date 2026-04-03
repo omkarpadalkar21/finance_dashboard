@@ -1,4 +1,4 @@
-package model;
+package com.omkar.Finance_Dashboard.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
